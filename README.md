@@ -2,10 +2,10 @@
 `Reproducing the same behavior of the Unix command 'cat'`
 
 #USAGE
-`cat [OPTION]... [FILE]...
-Concatenate FILE(s) to standard output.
+`cat [OPTION]... [FILE]...`
+`Concatenate FILE(s) to standard output.`
 
-With no FILE, or when FILE is -, read standard input.
+`With no FILE, or when FILE is -, read standard input.`
 
   -A, --show-all           equivalent to -vET
   -b, --number-nonblank    number nonempty output lines, overrides -n
