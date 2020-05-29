@@ -21,7 +21,7 @@
 # define STDOUT	1
 # define STDERR	2
 
-# define BUFF_SIZE	32
+# define BUFF_SIZE	4096
 # define FD_MAX		1024
 
 typedef struct	s_list
@@ -70,6 +70,7 @@ void			ft_memdel(void **ap);
 */
 
 int				ft_isalpha(int c);
+int				ft_iscntrl(int c);
 int				ft_isalnum(int c);
 int				ft_isdigit(int c);
 int				ft_islower(int c);

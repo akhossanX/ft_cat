@@ -46,7 +46,6 @@ typedef struct		s_file
 typedef struct		s_cat
 {
 	unsigned short	flags;
-	char			byte;
 	int				fd;
 	int				i;
 	int				opt_end;
@@ -64,5 +63,9 @@ extern const char	*g_form_table[];
 void	ft_cat_get_args(t_cat *cat);
 void	ft_cat_free(t_cat *cat);
 void	ft_cat_terminate(t_cat *cat, const int err);
+void	version_or_help(t_cat *cat, const int code);
+t_file	*cat_file_new(t_cat *cat, const char *filename);
+void	ft_cat_open_file(t_cat *cat, t_file *file);
+void	ft_cat_file(t_cat *cat, t_file *file);
 
 #endif

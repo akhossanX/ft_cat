@@ -24,13 +24,13 @@ HEADERS	=	$(addprefix $(INCDIR), $(shell ls $(INCDIR)))
 all: $(OBJDIR) $(TARGET)
 
 $(OBJS): $(OBJDIR)%.o: $(SRCDIR)%.c $(HEADERS)
-	$(CC) -c $< $(INC) -o $@
+	$(CC) -c $(CFLAGS) $< $(INC) -o $@
 
 $(OBJDIR):
 	@mkdir -p $@
 
 $(TARGET): $(OBJS) $(LIBS) 
-	$(CC) $^ -o $@
+	$(CC) $(CFLAGS) $^ -o $@
 
 $(LIBS):
 	@make -C libft/

@@ -2,9 +2,9 @@
 
 static int	save_line(t_gl *gl, const int fd, char **mem, char *endl)
 {
-	size_t	sz;
-	size_t	sz1;
-	char	*tmp;
+	size_t		sz;
+	size_t		sz1;
+	char		*tmp;
 
 	if (endl)
 	{
@@ -39,23 +39,23 @@ static int	save_line(t_gl *gl, const int fd, char **mem, char *endl)
 
 int			ft_getline(const int fd, char **mem)
 {
-	static t_gl	*gl;
+	static t_gl	gl;
 	void		*e;
 	int			r;
 
 	if (fd < 0 || mem == NULL || FD_MAX > 4096)
 		return (-1);
-	if (!gl && !(gl = ft_memalloc(sizeof(t_gl))))
-		return (-1);
+	//if (!gl && !(gl = ft_memalloc(sizeof(t_gl))))
+		//return (-1);
 	r = -1;
-	while (!(e = ft_memchr(gl->rs[fd], 10, gl->size[fd])) && 
-		(r = read(fd, gl->buf, BUFF_SIZE)) > 0)
+	while (!(e = ft_memchr(gl.rs[fd], 10, gl.size[fd])) && 
+		(r = read(fd, gl.buf, BUFF_SIZE)) > 0)
 	{
-		e = gl->rs[fd];	
-		gl->rs[fd] = ft_memjoin(gl->rs[fd], gl->buf, gl->size[fd], r);
-		gl->size[fd] += r;
+		e = gl.rs[fd];	
+		gl.rs[fd] = ft_memjoin(gl.rs[fd], gl.buf, gl.size[fd], r);
+		gl.size[fd] += r;
 		ft_memdel(&e);
-		ft_bzero((void *)&gl->buf, BUFF_SIZE);
+		ft_bzero((void *)&gl.buf, BUFF_SIZE);
 	}
-	return (r < 0 && !e ? -1 : save_line(gl, fd, mem, e));
+	return (r < 0 && !e ? -1 : save_line(&gl, fd, mem, e));
 }
