@@ -1,8 +1,12 @@
 # ft_cat
 `Reproduce the same behavior of the Unix command 'cat'`
 
+## Installation
+Under the project root directory, there is a Makefile, once launched it will
+build the entire project for you and generate an executable binary named `ft_cat` 
+
 ## Usage:
-`cat [OPTION]... [FILE]...`
+`./ft_cat [OPTION]... [FILE]...`
 
 Concatenate FILE(s) to standard output.
 
@@ -32,12 +36,12 @@ With no FILE, or when FILE is `-`, read standard input.
 
 ## Examples:
 ```bash
-  $> cat f - g
+  $> ./ft_cat f - g
 ``` 
  Output `f`'s content, then standard input, then `g`'s content.
 
   ```bash 
-  $> cat 
+  $> ./ft_cat 
   ```       
  Copy standard input to standard output.
 
